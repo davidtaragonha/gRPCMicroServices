@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.alonso.grpc.microservice.company;
+
+option java_multiple_files = true;
+
+message RetrieveCompanyRequest {
+    string name = 1;
+}
+
+message CompanyResponse {
+    string name = 1;
+    string country = 2;
+    int32 numberOfEmployees = 3;
+}
+
+service CompanyService {
+    rpc companies(RetrieveCompanyRequest) returns (CompanyResponse);
+}

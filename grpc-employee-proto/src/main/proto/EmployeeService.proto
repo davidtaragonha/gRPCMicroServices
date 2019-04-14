@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package com.alonso.grpc.microservice.employee;
+
+option java_multiple_files = true;
+
+message RetrieveEmployeesForCompanyRequest {
+    string company = 1;
+}
+
+message EmployeesForCompanyResponse {
+    int32 numberOfEmployees = 1;
+}
+
+service EmployeeService {
+    rpc employees(RetrieveEmployeesForCompanyRequest) returns (EmployeesForCompanyResponse);
+}
